@@ -1,9 +1,25 @@
+import cosas.*
 import camion.*
 
-describe "group of test for camion" {
+describe "test de camion" {
 
-  test "first test" {
-    assert.that(true)
+  test "blumblebee como robot" {
+    bumblebee.transformadoEnRobot()
+    assert.that(bumblebee.transformado == "Robot")
+  }
+  test "arena a granel con kilos" {
+    arenaGranel.pesoActual(150) 
+    assert.equals(150, arenaGranel.pesoActual())
+  }
+  test "bateria antiarea con misiles" {
+    bateriaAntiaerea.hayMisiles(true)
+    assert.that(bateriaAntiaerea.hayMisiles())
+  }
+  test "embalaje de seguridad con ladrillos" {
+    paqueteLadrillos.cantidadLadrillos(80)
+    assert.equals(80 , paqueteLadrillos.cantLadrillos())
+    embalajeDeSeguridad.cosa(paqueteLadrillos)
+    assert.equals(paqueteLadrillos , embalajeDeSeguridad.cosa())
   }
 
 }

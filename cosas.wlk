@@ -3,15 +3,21 @@ object cosas {
 }
 
 object knightRider {
-  const peso = 500
-  const peligrosidad = 10
-  method pesoActual() = peso
+  var peso = 500
+  var peligrosidad = 10
+  method peso() = peso
+  method pesoActual(unPeso) {
+    peso = unPeso
+  }
   method peligrosidad() = peligrosidad 
 }
 object bumblebee {
   var peso = 800
   var transformado = "Auto"
-  method pesoActual() = peso 
+  method peso() = peso 
+  method pesoActual(unPeso) {
+    peso = unPeso
+  }
   method peligrosidad() {
     if(transformado == "Auto") {
         return 15
@@ -30,6 +36,9 @@ object paqueteLadrillos {
   var cantLadrillos
   var peligrosidad = 2
   method cantLadrillos() = cantLadrillos
+  method cantidadLadrillos(ladrillos) {
+    cantLadrillos = ladrillos
+  }
   method pesoActual() {
     return cantLadrillos * 2
   }
@@ -37,25 +46,37 @@ object paqueteLadrillos {
 object arenaGranel {
   var peso
   var peligrosidad = 1
-  method pesoActual() = peso
+  method peso() = peso
+  method pesoActual(unPeso) {
+    peso = unPeso
+  }
 }
 object bateriaAntiaerea {
-  var hayMisiles = true
+  var hayMisiles = false
   method pesoActual() {
-    if(hayMisiles) {
+    if(hayMisiles() == true) {
         return peso = 300
     } else {
         return peso = 200
     }
   }
+
   method peligrosidad() {
-    if(hayMisiles) {
-        return peligrosidad = 100
+    if(hayMisiles() == true) {
+      return peligrosidad = 100
     } else {
         return peligrosidad = 0
     }
   }
+  method hayMisiles() = hayMisiles
+  method hayMisiles(valor) {
+    return hayMisiles == valor
+  }
+  method cargarMisiles() {
+    hayMisiles = true
+  }
 }
+
 object contenedorPotuario {
   var cosas = [knightRider , bumblebee , paqueteLadrillos , arenaGranel , bateriaAntiaerea]
   method pesoActual() {
@@ -72,8 +93,11 @@ object contenedorPotuario {
 object residuosRadioactivos {
   var peso
   var peligrosidad = 200
-  method pesoActual() = peso
-  method peligrosidad() = peligrosidad 
+  method peso() = peso
+  method pesoActual(unPeso) {
+    peso = unPeso
+  }
+  method peligrosidad() = peligrosidad
 }
 object embalajeDeSeguridad {
     var cosa
