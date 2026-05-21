@@ -8,6 +8,7 @@ object camion {
     }
     method cargarCosas(unaCosa) {
       cosas.add(unaCosa)
+      unaCosa.reaccionar()
     }
     method descargarCosas(unaCosa) {
         cosas.remove(unaCosa)
@@ -38,29 +39,5 @@ object camion {
     }
     method cosaQuePesaEntre(min, max) {
       return cosas.pesoActual().between(min, max)
-    }
-    method queOcupaUnBulto() {
-      var cosa = [KnightRider, arena a granel y residuos radioactivos]
-      return bultos = 1
-    }
-    method queOcupanDosBultos() {
-      var cosa = [bumblebee y embalaje de seguridad ]
-      return bultos = 2
-    }
-    method bultosQueOcupanLadrillos() {
-        if (paqueteLadrillos.cantLadrillos() == 100) {
-            return bultos = 1
-        } else if (paqueteLadrillos.cantLadrillos().between(101, 300)) {
-            return bultos = 2
-        } else (paqueteLadrillos.cantLadrillos() >= 301) {
-            return bultos = 3
-        }
-    }
-    method bultosQueOcupaBateria() {
-      if (hayMisiles) {
-        return bultos = 1
-      } else (cargarMisiles() == true ) {
-        return bultos = 2
-      }
     }
 }

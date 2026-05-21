@@ -21,5 +21,9 @@ describe "test de camion" {
     embalajeDeSeguridad.cosa(paqueteLadrillos)
     assert.equals(paqueteLadrillos , embalajeDeSeguridad.cosa())
   }
-
+  test "reaccion de la carga" {
+    arenaGranel.pesoActual(150)
+    camion.cargarCosas(arenaGranel)
+    assert.equals(140, arenaGranel.peso())
+  }
 }
