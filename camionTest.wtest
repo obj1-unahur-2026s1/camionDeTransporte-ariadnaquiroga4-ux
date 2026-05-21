@@ -9,7 +9,7 @@ describe "test de camion" {
   }
   test "arena a granel con kilos" {
     arenaGranel.pesoActual(150) 
-    assert.equals(150, arenaGranel.pesoActual())
+    assert.equals(150, arenaGranel.peso)
   }
   test "bateria antiarea con misiles" {
     bateriaAntiaerea.hayMisiles(true)
@@ -19,7 +19,7 @@ describe "test de camion" {
     paqueteLadrillos.cantidadLadrillos(80)
     assert.equals(80 , paqueteLadrillos.cantLadrillos())
     embalajeDeSeguridad.cosa(paqueteLadrillos)
-    assert.equals(paqueteLadrillos , embalajeDeSeguridad.cosa())
+    assert.equals(paqueteLadrillos , embalajeDeSeguridad.cosa)
   }
   test "reaccion de la carga" {
     arenaGranel.pesoActual(150)

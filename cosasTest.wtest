@@ -4,15 +4,15 @@ describe "tests de cosas" {
 
   test "poner al embalaje residuos radioactivos" {
     embalajeDeSeguridad.cosa(residuosRadioactivos)
-    embalajeDeSeguridad.pesoActual() = 30
+    embalajeDeSeguridad.pesoActual()
     assert.equals(30, embalajeDeSeguridad.pesoActual())
   }
   test "poner al contenedor cosas" {
     contenedorPotuario.cosas = [knightRider, arenaGranel, bateriaAntiaerea]
-    arenaGranel.pesoActual() = 10  //PESO NO ESCRITO EN CONSIGNA
-    bateriaAntiaerea.hayMisiles = false
-    contenedorPotuario.pesoActual() = 100 + knightRider.pesoActual() + arenaGranel.pesoActual() + bateriaAntiaerea.pesoActual()
-    assert.equals(100 + knightRider.pesoActual() + arenaGranel.pesoActual() + bateriaAntiaerea.pesoActual(), contenedorPotuario.pesoActual())
+    arenaGranel.pesoActual(10)   //PESO NO ESCRITO EN CONSIGNA
+    bateriaAntiaerea.hayMisiles(false)
+    contenedorPotuario.pesoActual()
+    assert.equals(810, contenedorPotuario.pesoActual())
   }
 
 }

@@ -50,9 +50,9 @@ object paqueteLadrillos {
     return cantLadrillos * 2
   }
    method bultos() {
-        if (paqueteLadrillos.cantLadrillos() == 100) {
+        if (self.cantLadrillos() == 100) {
             return bultos = 1
-        } else if (paqueteLadrillos.cantLadrillos().between(101, 300)) {
+        } else if (self.cantLadrillos().between(101, 300)) {
             return bultos = 2
         } else {
             return bultos = 3
@@ -75,19 +75,18 @@ object arenaGranel {
   }
 }
 object bateriaAntiaerea {
+  var peso
   var hayMisiles = false
   var bultos
   method pesoActual() {
-    if(hayMisiles() == true) {
+    if(hayMisiles == true) {
         return peso = 300
     } else {
         return peso = 200
     }
   }
   method peligrosidad() {
-    var hayMisiles
-    var bultos
-    if(hayMisiles() == true) {
+    if(hayMisiles == true) {
       return peligrosidad = 100
     } else {
         return peligrosidad = 0
@@ -114,8 +113,10 @@ object bateriaAntiaerea {
 
 object contenedorPotuario {
   var cosas = [knightRider , bumblebee , paqueteLadrillos , arenaGranel , bateriaAntiaerea]
+  var peso = 100
+  method peso() = peso
   method pesoActual() {
-    return 100 + cosas.sum({c => c.pesoActual()})
+    return peso + cosas.sum({c => c.pesoActual()})
   }
   method peligrosidad() {
     if(cosas.isEmpty()) {
